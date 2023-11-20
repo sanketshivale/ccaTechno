@@ -1,0 +1,252 @@
+<%- include('partials/header'); %>
+        <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
+            <section>
+                <% if (message) { %>
+                    <% if (message.type == "success") { %>
+                     <div class="text-green-900 text-center mt-10 bg-green-100 w-4/12 mx-auto"><%= message.message %></div>
+                    <% } else { %>
+                     
+                  <div class="text-red-900 text-center mt-10 bg-red-100 w-4/12 mx-auto"><%= message.message %></div>
+                <% } %><% } %>
+                <div class="w-full lg:w-8/12 mx-auto mt-6">
+                    <div
+                        class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
+                        <div class="rounded-t mb-0 px-6 py-6">
+                            <div class="text-center flex justify-between ">
+                                <h6 class="font-semibold text-base text-gray-900 dark:text-gray-50">
+                                    Student Admission
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+                            <form method="post" action="/admission">
+                                <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase ">
+                                    Details
+                                </h6>
+                                <div class="flex flex-wrap">
+                                    <div class="w-full lg:w-6/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="grid-password">
+                                               Full Name
+                                            </label>
+                                            <input type="text" placeholder="Full Name" name="fullname" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 dark:text-gray-800 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                    </div>
+                                    <div class="w-full lg:w-6/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="grid-password">
+                                                Email address
+                                            </label>
+                                            <input type="email" placeholder="email" name="email" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 dark:text-gray-800 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                    </div>
+        
+                                
+                                    <div class="w-full lg:w-6/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="grid-password">
+                                                Gender
+                                            </label>
+                                            <td>
+                                                Male <input
+                                                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150"
+                                                    required type="radio" name="gender" value="Male" />
+                                                Female <input
+                                                    class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150"
+                                                    required type="radio" name="gender" value="Female" />
+                                            </td>
+                                        </div>
+                                    </div>
+                                    <div class="w-full lg:w-6/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="grid-password">
+                                                Mobile Number
+                                            </label>
+                                            <input type="tel" pattern="[6789][0-9]{9}" placeholder="mobile no."
+                                                name="mobile" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 dark:text-gray-800 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                    </div>
+                                    <div class="w-full lg:w-6/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="dob">
+                                                Date of Birth
+                                            </label>
+                                            <input type="date"  name="dob" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 dark:text-gray-800 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                    </div>
+                                    <div class="w-full lg:w-6/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="parentname">
+                                                Parents Name
+                                            </label>
+                                            <input type="text" placeholder="Enter Parents Name"
+                                                name="parentname" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 dark:text-gray-800 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                    </div>
+                                    <div class="w-full lg:w-6/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="parentoccupation">
+                                                Parents Occupation
+                                            </label>
+                                            <input type="text" placeholder="Enter Parents Occupation"
+                                                name="parentoccupation" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 dark:text-gray-800 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                    </div>
+                                    <div class="w-full lg:w-6/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="parentphone">
+                                                Parents Mobile Number
+                                            </label>
+                                            <input type="tel" pattern="[6789][0-9]{9}" placeholder="Parent Mobile No."
+                                                name="parentphone" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 dark:text-gray-800 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="w-full lg:w-6/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="adharcard">
+                                                Student Adharcard Number
+                                            </label>
+                                            <input type="text" pattern="^\d{4}\s\d{4}\s\d{4}$" placeholder="Enter Student Adharcard No."
+                                                name="adharcard" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 dark:text-gray-800 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr class="mt-6 border-b-1 border-blueGray-300">
+
+                                <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase ">
+                                    Address & Education
+                                </h6>
+                                <div class="flex flex-wrap">
+                                    <div class="w-full lg:w-12/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="grid-password">
+                                                Address
+                                            </label>
+                                            <input type="text" placeholder="Enter your Complete Address" name="address" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 dark:text-gray-800 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                    </div>
+                                    <div class="w-full lg:w-12/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="grid-password">
+                                                Education
+                                            </label>
+                                            <input type="text" placeholder="Enter your Education Details" name="education.edu" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 dark:text-gray-800 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="grid-password">
+                                                Year 
+                                            </label>
+                                            <input type="text" placeholder="Enter Your College Year" name="education.year" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 dark:text-gray-800 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                    </div>
+                                
+                                </div>
+
+                            
+
+                                <hr class="mt-6 border-b-1 border-blueGray-300">
+
+                                <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase ">
+                                    Course Details
+                                </h6>
+                                <div class="flex flex-wrap">
+                                    <div class="w-full lg:w-12/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="grid-password">
+                                                Course Interested
+                                            </label>
+                                            <select name="course"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                
+                                                <% getAllCourse.forEach(element => { %>
+                                                 <option value="<%= element._id %>"><%= element.coursename %></option>
+                                                <% }) %>
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                <button class="mx-auto bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-5 py-3 rounded outline-none focus:outline-none mt-4 ease-linear transition-all duration-150" type="submit">
+                                    Admit
+                                </button>                 
+                                </div>   
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="my-10 mx-4">
+                <div class="w-full overflow-hidden rounded-lg shadow-xs">
+                    <div class="w-full overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr
+                                    class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                    <th class="px-4 py-3"> Student Name</th>
+                                    <th class="px-4 py-3">Email</th>
+                                    <th class="px-4 py-3">Course</th>
+                                    <th class="px-4 py-3">Status</th>
+                                    <th class="px-4 py-3">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                                <% getAllAdmission.forEach(element => { %>
+                                <tr
+                                    class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+                                    <td class="px-4 py-3">
+                                        <div class="flex items-center text-sm">
+                                            
+                                            <div>
+                                                <a href="student/confirm/<%= element._id %>"><p class="font-semibold"><%= element.fullname %></p></a>
+                                                <p class="text-xs text-gray-600 dark:text-gray-400">
+                                                    <%= element.mobile %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-3 text-sm"><%= element.email %></td>
+                                    <td class="px-4 py-3 text-sm"><%= element.course.coursename %></td>
+                                    <td class="px-4 py-3 text-xs">
+                                        <span
+                                            class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
+                                            Pending </span>
+                                    </td>
+                                    
+                                    <td class="px-4 py-3 text-sm"><%= element.createdAt.toLocaleDateString('en-GB')  %></td>
+                                </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+            <%- include('partials/footer'); %>

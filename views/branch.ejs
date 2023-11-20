@@ -1,0 +1,135 @@
+<%- include('partials/header'); %>
+        <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
+            <section class="bg-blueGray-50">
+                               <% if (message) { %>
+                    <% if (message.type == "success") { %>
+                     <div class="text-green-900 text-center mt-10 bg-green-100 w-4/12 mx-auto"><%= message.message %></div>
+                    <% } else { %>
+                     
+                  <div class="text-red-900 text-center mt-10 bg-red-100 w-4/12 mx-auto"><%= message.message %></div>
+                <% } %><% } %>
+                <div class="w-full lg:w-8/12 mx-auto mt-6">
+                    <div
+                        class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
+                        <div class="rounded-t mb-0 px-6 py-6">
+                            <div class="text-center flex justify-between ">
+                                <h6 class="font-semibold text-base text-gray-900 dark:text-gray-50">
+                                    Branch Create
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+                            <form method="post" action="/branch">
+                                <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase ">
+                                    Branch Information
+                                </h6>
+                                <div class="flex flex-wrap">
+                                    <div class="w-full lg:w-6/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="branchname">
+                                                Branch Name
+                                            </label>
+                                            <input type="text" placeholder="branchname" name="branchname" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                    </div>
+                                    <div class="w-full lg:w-6/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="desc">
+                                                Branch description
+                                            </label>
+                                            <input type="text" placeholder="description" name="desc" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                    </div>
+                                    <div class="w-full lg:w-6/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="grid-password">
+                                                Branch location
+                                            </label>
+                                            <input type="text"  placeholder="location"
+                                                name="location" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                    </div>
+                                    <div class="w-full lg:w-6/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="grid-password">
+                                                Password
+                                            </label>
+                                            <input type="password"  placeholder="password"
+                                                name="password" required
+                                                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        </div>
+                                    </div>
+                                    <div class="w-full lg:w-6/12 px-4">
+                                        <div class="relative w-full mb-3">
+                                            <label class="uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                                htmlfor="role">
+                                                Admin 
+                                            </label>
+                                            <input type="checkbox"   
+                                                name="role" value="admin"
+                                                >
+                                        </div>
+                                    </div>
+                                    
+
+                                </div>
+
+                                
+                                    <button
+                                        class="mx-auto bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-5 py-3 rounded outline-none focus:outline-none mt-4 ease-linear transition-all duration-150"
+                                        type="submit">
+                                        Create
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            
+            </section>
+
+            <section class="mx-3">
+                
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Branch Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Branch Description
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Branch Location
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% getAllBranch.forEach(element => { %>
+                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <%= element.branchname %>
+                    </th>
+                    <td class="px-6 py-4">
+                        <%= element.desc %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= element.location %>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+            </section>
+        </div>
+            <%- include('partials/footer'); %>
+

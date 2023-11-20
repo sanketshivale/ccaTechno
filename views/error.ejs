@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"  rel="stylesheet" />
+    <link rel='stylesheet' href='/build/output.css' />
+    <link rel="icon" href="https://www.codingcircleacademy.com/src/images/CCA%20Icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    
+</head>
+
+<body>
+
+<!-- component -->
+<style>
+    /* Compiled dark classes from Tailwind */
+    .dark .dark\:divide-gray-700> :not([hidden])~ :not([hidden]) {
+        border-color: rgba(55, 65, 81);
+    }
+
+    .dark .dark\:bg-gray-50 {
+        background-color: rgba(249, 250, 251);
+    }
+
+    .dark .dark\:bg-gray-100 {
+        background-color: rgba(243, 244, 246);
+    }
+
+    .dark .dark\:bg-gray-600 {
+        background-color: rgba(75, 85, 99);
+    }
+
+    .dark .dark\:bg-gray-700 {
+        background-color: rgba(55, 65, 81);
+    }
+
+    .dark .dark\:bg-gray-800 {
+        background-color: rgba(31, 41, 55);
+    }
+
+    .dark .dark\:bg-gray-900 {
+        background-color: rgba(17, 24, 39);
+    }
+
+    .dark .dark\:bg-red-700 {
+        background-color: rgba(185, 28, 28);
+    }
+
+    .dark .dark\:bg-green-700 {
+        background-color: rgba(4, 120, 87);
+    }
+
+    .dark .dark\:hover\:bg-gray-200:hover {
+        background-color: rgba(229, 231, 235);
+    }
+
+    .dark .dark\:hover\:bg-gray-600:hover {
+        background-color: rgba(75, 85, 99);
+    }
+
+    .dark .dark\:hover\:bg-gray-700:hover {
+        background-color: rgba(55, 65, 81);
+    }
+
+    .dark .dark\:hover\:bg-gray-900:hover {
+        background-color: rgba(17, 24, 39);
+    }
+
+    .dark .dark\:border-gray-100 {
+        border-color: rgba(243, 244, 246);
+    }
+
+    .dark .dark\:border-gray-400 {
+        border-color: rgba(156, 163, 175);
+    }
+
+    .dark .dark\:border-gray-500 {
+        border-color: rgba(107, 114, 128);
+    }
+
+    .dark .dark\:border-gray-600 {
+        border-color: rgba(75, 85, 99);
+    }
+
+    .dark .dark\:border-gray-700 {
+        border-color: rgba(55, 65, 81);
+    }
+
+    .dark .dark\:border-gray-900 {
+        border-color: rgba(17, 24, 39);
+    }
+
+    .dark .dark\:hover\:border-gray-800:hover {
+        border-color: rgba(31, 41, 55);
+    }
+
+    .dark .dark\:text-white {
+        color: rgba(255, 255, 255);
+    }
+
+    .dark .dark\:text-gray-50 {
+        color: rgba(249, 250, 251);
+    }
+
+    .dark .dark\:text-gray-100 {
+        color: rgba(243, 244, 246);
+    }
+
+    .dark .dark\:text-gray-200 {
+        color: rgba(229, 231, 235);
+    }
+
+    .dark .dark\:text-gray-400 {
+        color: rgba(156, 163, 175);
+    }
+
+    .dark .dark\:text-gray-500 {
+        color: rgba(107, 114, 128);
+    }
+
+    .dark .dark\:text-gray-700 {
+        color: rgba(55, 65, 81);
+    }
+
+    .dark .dark\:text-gray-800 {
+        color: rgba(31, 41, 55);
+    }
+
+    .dark .dark\:text-red-100 {
+        color: rgba(254, 226, 226);
+    }
+
+    .dark .dark\:text-green-100 {
+        color: rgba(209, 250, 229);
+    }
+
+    .dark .dark\:text-blue-400 {
+        color: rgba(96, 165, 250);
+    }
+
+    .dark .group:hover .dark\:group-hover\:text-gray-500 {
+        color: rgba(107, 114, 128);
+    }
+
+    .dark .group:focus .dark\:group-focus\:text-gray-700 {
+        color: rgba(55, 65, 81);
+    }
+
+    .dark .dark\:hover\:text-gray-100:hover {
+        color: rgba(243, 244, 246);
+    }
+
+    .dark .dark\:hover\:text-blue-500:hover {
+        color: rgba(59, 130, 246);
+    }
+
+    /* Custom style */
+    .header-right {
+        width: calc(100% - 3.5rem);
+    }
+
+    .sidebar:hover {
+        width: 16rem;
+    }
+
+    @media only screen and (min-width: 768px) {
+        .header-right {
+            width: calc(100% - 16rem);
+        }
+    }
+</style>
+<div x-data="setup()" :class="{ 'dark': isDark }">
+    <div
+        class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+
+        <!-- Header -->
+        <div class="fixed w-full flex items-center justify-between h-14 text-white z-10">
+            <div
+                class="flex items-center justify-start md:justify-center md:w-64 h-14 bg-blue-800 dark:bg-gray-800 border-none">
+                <img class="md:w-12 md:h-12 mr-2 rounded-md overflow-hidden"
+                    src="https://www.codingcircleacademy.com/src/images/CCA%20Icon.png" />
+                <span><%= title %></span>
+            </div>
+            <div class="flex justify-between items-center h-14 bg-blue-800 dark:bg-gray-800 header-right">
+                <div class="rounded flex items-center w-full max-w-xl mr-4 p-2 shadow-sm ">
+                    
+                </div>
+                <ul class="flex items-center">
+                    <li>
+                        <a href="/setting" data-popover-target="popover-bottom" data-popover-placement="bottom"
+                            class="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent pr-4">
+                            <span class="inline-flex justify-center items-center ">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </span>
+                        </a>
+                        <div data-popover id="popover-bottom" role="tooltip" class="absolute z-10 invisible inline-block w-25 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                            <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Settings</h3>
+                            </div>
+                            
+                            <div data-popper-arrow></div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/profile" data-popover-target="popover-profile" data-popover-placement="bottom"
+                            class="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent pr-6">
+                            <span class="inline-flex justify-center items-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+                                    </path>
+                                </svg>
+                            </span>
+                            
+                        </a>
+                        <div data-popover id="popover-profile" role="tooltip" class="absolute z-10 invisible inline-block w-25 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                            <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Profile</h3>
+                            </div>
+                            
+                            <div data-popper-arrow></div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/auth/logout" class="flex items-center mr-4 hover:text-blue-100">
+                            <span class="inline-flex mr-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                                    </path>
+                                </svg>
+                            </span>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!DOCTYPE html>
+        <html>
+        
+        <head>
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=7">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>
+                <%= title %>
+            </title>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"  rel="stylesheet" />
+            <link rel='stylesheet' href='/build/output.css' />
+            <link rel="icon" href="https://www.codingcircleacademy.com/src/images/CCA%20Icon.png" type="image/x-icon">
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+            
+        </head>
+        
+        <body>
+        
+        <!-- component -->
+        <style>
+            /* Compiled dark classes from Tailwind */
+            .dark .dark\:divide-gray-700> :not([hidden])~ :not([hidden]) {
+                border-color: rgba(55, 65, 81);
+            }
+        
+            .dark .dark\:bg-gray-50 {
+                background-color: rgba(249, 250, 251);
+            }
+        
+            .dark .dark\:bg-gray-100 {
+                background-color: rgba(243, 244, 246);
+            }
+        
+            .dark .dark\:bg-gray-600 {
+                background-color: rgba(75, 85, 99);
+            }
+        
+            .dark .dark\:bg-gray-700 {
+                background-color: rgba(55, 65, 81);
+            }
+        
+            .dark .dark\:bg-gray-800 {
+                background-color: rgba(31, 41, 55);
+            }
+        
+            .dark .dark\:bg-gray-900 {
+                background-color: rgba(17, 24, 39);
+            }
+        
+            .dark .dark\:bg-red-700 {
+                background-color: rgba(185, 28, 28);
+            }
+        
+            .dark .dark\:bg-green-700 {
+                background-color: rgba(4, 120, 87);
+            }
+        
+            .dark .dark\:hover\:bg-gray-200:hover {
+                background-color: rgba(229, 231, 235);
+            }
+        
+            .dark .dark\:hover\:bg-gray-600:hover {
+                background-color: rgba(75, 85, 99);
+            }
+        
+            .dark .dark\:hover\:bg-gray-700:hover {
+                background-color: rgba(55, 65, 81);
+            }
+        
+            .dark .dark\:hover\:bg-gray-900:hover {
+                background-color: rgba(17, 24, 39);
+            }
+        
+            .dark .dark\:border-gray-100 {
+                border-color: rgba(243, 244, 246);
+            }
+        
+            .dark .dark\:border-gray-400 {
+                border-color: rgba(156, 163, 175);
+            }
+        
+            .dark .dark\:border-gray-500 {
+                border-color: rgba(107, 114, 128);
+            }
+        
+            .dark .dark\:border-gray-600 {
+                border-color: rgba(75, 85, 99);
+            }
+        
+            .dark .dark\:border-gray-700 {
+                border-color: rgba(55, 65, 81);
+            }
+        
+            .dark .dark\:border-gray-900 {
+                border-color: rgba(17, 24, 39);
+            }
+        
+            .dark .dark\:hover\:border-gray-800:hover {
+                border-color: rgba(31, 41, 55);
+            }
+        
+            .dark .dark\:text-white {
+                color: rgba(255, 255, 255);
+            }
+        
+            .dark .dark\:text-gray-50 {
+                color: rgba(249, 250, 251);
+            }
+        
+            .dark .dark\:text-gray-100 {
+                color: rgba(243, 244, 246);
+            }
+        
+            .dark .dark\:text-gray-200 {
+                color: rgba(229, 231, 235);
+            }
+        
+            .dark .dark\:text-gray-400 {
+                color: rgba(156, 163, 175);
+            }
+        
+            .dark .dark\:text-gray-500 {
+                color: rgba(107, 114, 128);
+            }
+        
+            .dark .dark\:text-gray-700 {
+                color: rgba(55, 65, 81);
+            }
+        
+            .dark .dark\:text-gray-800 {
+                color: rgba(31, 41, 55);
+            }
+        
+            .dark .dark\:text-red-100 {
+                color: rgba(254, 226, 226);
+            }
+        
+            .dark .dark\:text-green-100 {
+                color: rgba(209, 250, 229);
+            }
+        
+            .dark .dark\:text-blue-400 {
+                color: rgba(96, 165, 250);
+            }
+        
+            .dark .group:hover .dark\:group-hover\:text-gray-500 {
+                color: rgba(107, 114, 128);
+            }
+        
+            .dark .group:focus .dark\:group-focus\:text-gray-700 {
+                color: rgba(55, 65, 81);
+            }
+        
+            .dark .dark\:hover\:text-gray-100:hover {
+                color: rgba(243, 244, 246);
+            }
+        
+            .dark .dark\:hover\:text-blue-500:hover {
+                color: rgba(59, 130, 246);
+            }
+        
+            /* Custom style */
+            .header-right {
+                width: calc(100% - 3.5rem);
+            }
+        
+            .sidebar:hover {
+                width: 16rem;
+            }
+        
+            @media only screen and (min-width: 768px) {
+                .header-right {
+                    width: calc(100% - 16rem);
+                }
+            }
+        </style>
+        <div x-data="setup()" :class="{ 'dark': isDark }">
+            <div
+                class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+        
+                <!-- Header -->
+                <div class="fixed w-full flex items-center justify-between h-14 text-white z-10">
+                    <div
+                        class="flex items-center justify-start md:justify-center md:w-64 h-14 bg-blue-800 dark:bg-gray-800 border-none">
+                        <img class="md:w-12 md:h-12 mr-2 rounded-md overflow-hidden"
+                            src="https://www.codingcircleacademy.com/src/images/CCA%20Icon.png" />
+                        <span><%= title %></span>
+                    </div>
+                    <div class="flex justify-between items-center h-14 bg-blue-800 dark:bg-gray-800 header-right">
+                        <div class="rounded flex items-center w-full max-w-xl mr-4 p-2 shadow-sm ">
+                            
+                        </div>
+                        <ul class="flex items-center">
+                            <li>
+                                <a href="/setting" data-popover-target="popover-bottom" data-popover-placement="bottom"
+                                    class="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent pr-4">
+                                    <span class="inline-flex justify-center items-center ">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                                            </path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div data-popover id="popover-bottom" role="tooltip" class="absolute z-10 invisible inline-block w-25 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                    <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                                        <h3 class="font-semibold text-gray-900 dark:text-white">Settings</h3>
+                                    </div>
+                                    
+                                    <div data-popper-arrow></div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="/profile" data-popover-target="popover-profile" data-popover-placement="bottom"
+                                    class="relative flex flex-row items-center h-11 focus:outline-none text-white-600 hover:text-white-800 border-l-4 border-transparent pr-6">
+                                    <span class="inline-flex justify-center items-center">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    
+                                </a>
+                                <div data-popover id="popover-profile" role="tooltip" class="absolute z-10 invisible inline-block w-25 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                                    <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                                        <h3 class="font-semibold text-gray-900 dark:text-white">Profile</h3>
+                                    </div>
+                                    
+                                    <div data-popper-arrow></div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="/auth/logout" class="flex items-center mr-4 hover:text-blue-100">
+                                    <span class="inline-flex mr-1">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ./Header -->
+        
+                <!-- Sidebar -->
+                <div class="lg:px-24 lg:py-24 md:py-20 md:px-44 px-4 py-24 items-center flex justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16">
+                    <div class="xl:pt-24 w-full xl:w-1/2 relative pb-12 lg:pb-0">
+                        <div class="relative">
+                            <div class="absolute">
+                                <div class="">
+                                    <h1 class="my-2 text-gray-800 font-bold text-2xl">
+                                        <%= error.status %>
+                                        Looks like you've found the
+                                        doorway to the great nothing
+                                    </h1>
+                                    <p class="my-2 text-gray-800">Sorry about that! Please visit our hompage to get where you need to go.</p>
+                                    <button onclick="window.location.href='/'" class="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50">Take me there!</button>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="https://i.ibb.co/G9DC8S0/404-2.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
+                    </div>
+                </div>
+                <!-- ./Sidebar -->
+
+<%- include('partials/footer'); %>

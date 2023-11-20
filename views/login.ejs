@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/build/output.css" />
+    <link
+      rel="icon"
+      href="https://www.codingcircleacademy.com/src/images/CCA%20Icon.png"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body>
+    <section class="bg-gray-50 min-h-screen flex items-center justify-center">
+      <!-- login container -->
+      <div
+        class="bg-gray-100 flex rounded-2xl shadow-lg lg:max-w-3xl items-center"
+      >
+        <!-- form -->
+        <div class="md:w-1/2 px-8">
+          <div class="flex items-center mt-2">
+            <img
+              class="rounded-full"
+              src="https://www.codingcircleacademy.com/src/images/CCA%20Icon.png"
+            />
+            <div class="ml-4">
+              <strong>Coding Circle Academy</strong><br />
+              <p>Admission Portal</p>
+            </div>
+          </div>
+          <h2 class="font-bold text-2xl text-[#002D74] mt-5">Login</h2>
+          <p class="text-xs mt-4 text-[#002D74]">
+            For Admin Staff members only
+          </p>
+          <% if (message) { %>
+          <div class="alert"><%= message.message %></div>
+          <% } %>
+
+          <form method="post" action="/auth/login" class="flex flex-col gap-4">
+            <input
+              class="p-2 mt-8 rounded-xl border"
+              type="text"
+              name="branchname"
+              placeholder="Branch"
+            />
+            <div class="relative">
+              <input
+              id="myInput"
+                class="p-2 rounded-xl border w-full"
+                type="password"
+                name="password"
+                placeholder="Password"
+              />
+              <input class="absolute top-1/2 right-3 -translate-y-1/2" type="checkbox" onclick="showPassword()">
+             
+              <script>
+                function showPassword() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {  
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+              </script>
+              
+            </div>
+            <button
+              class="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300"
+              type="submit"
+            >
+              Login
+            </button>
+          </form>
+
+
+          <div class="mt-5 text-xs border-[#002D74] py-4 text-[#002D74]">
+            <p>Copyright @2023 CCA</p >
+          </div>
+        </div>
+
+        <!-- image -->
+        <div class="w-1/2 ">
+          <img
+            class="rounded-2xl"
+            src="/images/image.svg"
+          />
+        </div>
+      </div>
+    </section>
+    <%- include('partials/footer'); %>
+  </body>
+</html>

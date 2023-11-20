@@ -1,0 +1,359 @@
+<%- include('partials/header'); %>
+    <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
+        <% if (message) { %>
+            <% if (message.type == "success") { %>
+             <div class="text-green-900 text-center mt-10 bg-green-100 w-4/12 mx-auto"><%= message.message %></div>
+            <% } else { %>
+             
+          <div class="text-red-900 text-center mt-10 bg-red-100 w-4/12 mx-auto"><%= message.message %></div>
+        <% } %><% } %>
+      <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .profile-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+    
+        .profile-card {
+            max-width: 600px;
+            background-color: #f8f8f8;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+    
+        .profile-card-content {
+            padding: 1.5rem;
+        }
+    
+        .profile-card h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.75rem;
+        }
+    
+        .profile-card p {
+            margin-bottom: 1rem;
+        }
+    
+        .status-tag {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 0.25rem;
+        }
+    
+        .status-tag.confirmed {
+            color: #34d371;
+            background-color: #D1FAE5;
+        }
+    
+        .status-tag.pending {
+            color: #F87171;
+            background-color: #FEE2E2;
+        }
+    
+        .profile-details ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+        }
+    
+        .profile-details li {
+            margin-bottom: 0.5rem;
+        }
+    
+        .fees-card {
+            max-width: 600px;
+            background-color: #f8f8f8;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-left: 1.5rem;
+        }
+    
+        .fees-card-content {
+            padding: 1.5rem;
+        }
+    
+        .fees-card h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+    
+        .fees-card form {
+            margin-top: 1rem;
+        }
+    
+        .fees-card form .grid {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1rem;
+        }
+    
+        .fees-card form label {
+            font-size: 0.875rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+    
+        .fees-card form input {
+            border: 1px solid #ccc;
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+            width: 100%;
+        }
+    
+        .profile-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+    
+        .profile-actions a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s ease;
+        }
+    
+        .profile-actions a.delete {
+            color: #fff;
+            background-color: #EF4444;
+            margin-right: 0.5rem;
+        }
+    
+        .profile-actions a.delete:hover {
+            background-color: #DC2626;
+        }
+    
+        .profile-actions a.print {
+            color: #fff;
+            background-color: #10B981;
+        }
+    
+        .profile-actions a.print:hover {
+            background-color: #047857;
+        }
+    </style>
+    
+    <div class="container mx-auto mt-14">
+        <div class="profile-wrapper">
+            <div class="max-w-md mx-auto bg-gray-100 rounded-lg shadow-md overflow-hidden profile-card">
+                <div class="p-6 profile-card-content">
+                  
+                    <h2 class="text-2xl font-bold text-gray-800 text-center mb-4"><%= findStudent.fullname %> </h2>
+                    <p class="text-center mb-5">
+                        <% if (findStudent.status == 1) { %>
+                            <span class="px-2 py-1 text-sm font-semibold text-green-700 bg-green-100 rounded-full status-tag confirmed">
+                                Confirmed
+                            </span>
+                        <% } else { %>
+                            <span class="px-2 py-1 text-sm font-semibold text-red-700 bg-red-100 rounded-full status-tag pending">
+                                Pending
+                            </span>
+                        <% } %>
+                    </p>
+                    <div class="profile-details">
+                        <ul class="text-gray-600">
+                            <li>
+                                <h3 class="text-lg font-semibold mb-2">Personal Information</h3>
+                                <ul class="list-disc list-inside pl-5">
+                                    <li><span class="font-semibold">DOB:</span> <%= findStudent.dob %></li>
+                                    <li><span class="font-semibold">Gender:</span> <%= findStudent.gender %></li>
+                                    <li><span class="font-semibold">Parents Name:</span> <%= findStudent.parentname %></li>
+                                    <li><span class="font-semibold">Parents Occupation:</span> <%= findStudent.parentoccupation %></li>
+                                    <li><span class="font-semibold">Parents No.:</span> <%= findStudent.parentphone %></li>
+                                    <li><span class="font-semibold">Adhar Card No.:</span> <%= findStudent.adharcard %></li>
+                                </ul>
+                            </li>
+                            <li class="mt-4">
+                                <h3 class="text-lg font-semibold mb-2">Education</h3>
+                                <ul class="list-disc list-inside pl-5">
+                                    <li><span class="font-semibold">College:</span> <%= findStudent.education.edu %></li>
+                                    <li><span class="font-semibold">Year:</span> <%= findStudent.education.year %></li>
+                                </ul>
+                            </li>
+                            <li class="mt-4">
+                                <h3 class="text-lg font-semibold mb-2">Contact Information</h3>
+                                <ul class="list-disc list-inside pl-5">
+                                    <li><span class="font-semibold">Email:</span> <%= findStudent.email %></li>
+                                    <li><span class="font-semibold">Phone:</span> <%= findStudent.mobile %></li>
+                                    <li><span class="font-semibold">Address:</span> <%= findStudent.address %></li>
+                                </ul>
+                            </li>
+                            <li class="mt-4">
+                                <h3 class="text-lg font-semibold mb-2">Course Information</h3>
+                                <ul class="list-disc list-inside pl-5">
+                                    <li><span class="font-semibold">Course:</span> <%= findStudent.course.coursename %></li>
+                                    <% if (findStudent.status == "1") { %>
+                                        <li><span class="font-semibold">Batch:</span> <%= findStudent.batch.batchname %></li>
+                                    <% } %>
+                                </ul>
+                            </li>
+                            <% if (findStudent.status == "1") { %>
+                            <li class="mt-4">
+                                <h3 class="text-lg font-semibold mb-2">Fees Information</h3>
+                                <ul class="list-disc list-inside pl-5">
+                                    <p class="font-semibold"> Fees Status:
+                                        <% if (findStudent.fees == "Fully Paid") { %>
+                                            <span class="px-2 py-1 text-sm font-semibold text-green-700 bg-green-100 rounded-full">
+                                                Fully Paid
+                                            </span>
+                                        <% } else if(findStudent.fees == "Partially Paid") { %>
+                                            <span class="px-2 py-1 text-sm font-semibold text-yellow-700 bg-yellow-100 rounded-full">
+                                                Partially Paid
+                                            </span>
+                                        <% }else{ %>
+                                            <span class="px-2 py-1 text-sm font-semibold text-red-700 bg-red-100 rounded-full">
+                                                Not Paid
+                                            </span>
+                                        <% } %>
+                                    </p>
+                                        <li><span class="font-semibold">Total fees to be paid: </span> <%= findStudent.installment.totalamount %></li>
+                                        <li><span class="font-semibold">Fees Paid Uptil Now: </span> <%= findStudent.installment.paidamount %></li>
+                                        <li><span class="font-semibold">Remaining fees: </span> <%= findStudent.installment.totalamount - findStudent.installment.paidamount %></li>
+                                    
+                                </ul>
+                            </li>
+                            <div class="profile-actions">
+                                <a href="/student/delete/<%= findStudent._id %>"
+                                    class="bg-red-500 text-white active:bg-red-600 font-bold uppercase px-5 py-3 rounded outline-none focus:outline-none mt-4 delete">
+                                    Delete
+                                </a>
+                                <a href="/student/print/<%= findStudent._id %>"
+                                    class="bg-green-500 text-white active:bg-green-600 font-bold uppercase px-5 py-3 rounded outline-none focus:outline-none mt-4 print">
+                                    Print
+                                </a>
+                            </div>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <% if (findStudent.status == "0") { %>
+                <div class="max-w-md mx-auto bg-gray-100 rounded-lg shadow-md overflow-hidden fees-card">
+                    <div class="p-6 fees-card-content">
+                        
+                        <form method="post">
+                            <div class="relative w-full mb-3">
+                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                    htmlfor="grid-password">
+                                    Select your Batch
+                                </label>
+                                <select name="batch"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    
+                                    <% getAllBatch.forEach(element => { %>
+                                     <option value="<%= element._id %>"><%= element.batchname %></option>
+                                    <% }) %>
+                                    
+                                </select>
+                            </div>
+
+                            <div class="flex justify-end mt-4">
+                                <button class="bg-green-500 text-white active:bg-green-600 font-bold uppercase px-5 py-3 rounded outline-none focus:outline-none ease-linear transition-all duration-150"
+                                    type="submit">
+                                    Admit
+                                </button>
+                                <a href="/student"
+                                    class="bg-red-500 text-white active:bg-red-600 font-bold uppercase px-5 py-3 rounded outline-none focus:outline-none ease-linear transition-all duration-150 ml-4">
+                                    Cancel
+                                </a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            <% } %>
+            <% if (findStudent.status == "1") { %>
+                
+                <div class="max-w-md mx-auto bg-gray-100 rounded-lg shadow-md overflow-hidden fees-card">
+                    <div class="p-6 fees-card-content">
+
+                        <h6>Transcation History</h6>
+                        
+                        <table style="border-collapse: collapse; width: 100%;">
+                            <tr style="border-bottom: 1px solid #000;">
+                                <th style="border-bottom: 1px solid #000; padding: 8px; text-align: start;">Amount</th>
+                              <th style="border-bottom: 1px solid #000; padding: 8px; text-align: start;">Date</th>
+                              <th style="border-bottom: 1px solid #000; padding: 8px; text-align: start;">Payment Mode</th>
+                              
+                            </tr>
+                            <% findStudent.installments.forEach(element => { %>
+                            <tr>
+                                <td style="border-bottom: 1px solid #000; padding: 8px;"><%= element.amount %></td>
+                              <td style="border-bottom: 1px solid #000; padding: 8px;"><%= element.date.toLocaleDateString() %></td>
+                              <td style="border-bottom: 1px solid #000; padding: 8px;"><%= element.mode %></td>
+                              
+                            </tr>
+                            <% }); %>
+                          </table>
+                          
+                           
+                        <% if (findStudent.fees == "Not Paid" || findStudent.fees == "Partially Paid") { %>
+                         
+                            
+                        <form method="post">
+
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <h6 class="font-semibold mb-2">Enter Amount to Pay</h6>
+                                    
+                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                id="amount" type="number" name="amount" placeholder="Amount" required>
+
+                                                
+                                                
+                                </div>
+                                <div class="mt-3">
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2 "
+                                        htmlfor="mode">
+                                        Select your Mode
+                                    </label>
+                                    <select name="mode" required
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        
+                                        
+                                         <option value="Online">Online</option>
+                                         <option value="Cash">Cash</option>
+                                        
+                                        
+                                    </select>
+                                </div>
+                                <div class="mt-4">
+                                    <button class="bg-green-500 text-white active:bg-green-600 font-bold uppercase px-5 py-3 rounded outline-none focus:outline-none ease-linear transition-all duration-150"
+                                                type="submit">
+                                                Pay
+                                            </button>
+                                </div>
+                            </div>
+                                
+                            
+                        </form>
+                   
+                        <% } %>
+                    </div>
+                </div>
+                        
+                    
+            <% } %>
+        </div>
+
+        
+    </div>
+</div>
+    <%- include('partials/footer'); %>

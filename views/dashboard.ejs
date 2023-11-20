@@ -1,0 +1,310 @@
+<%- include('partials/header'); %>
+
+
+    <div class="h-full ml-14 mt-14 mb-10 md:ml-64 mx-4">
+
+        <!-- Statistics Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
+            <div
+                class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+                <div
+                    class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
+                    <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="text-right">
+                    <% if (getAllCourse) { %>
+                        <p class="text-2xl">
+                            <%= getAllStudent %>
+                        </p>
+                        <% } %>
+                            <p>Admission</p>
+                </div>
+
+            </div>
+            <div
+                class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+                <div
+                    class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
+                    <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                    </svg>
+                </div>
+                <div class="text-right">
+                    <% if (getAllCourse) { %>
+                        <p class="text-2xl">
+                            <%= getAllCourse %>
+                        </p>
+                        <% } %>
+                            <p>Course</p>
+                </div>
+            </div>
+            <div
+                class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+                <div
+                    class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
+                    <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                </div>
+                <div class="text-right">
+                    <% if (getAllStudent) { %>
+                        <p class="text-2xl">
+                            <%= getAllPending %>
+                        </p>
+                        <% } %>
+                            <p>Pending Admission</p>
+                </div>
+            </div>
+            <div
+                class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+                <div
+                    class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
+                    <svg class="stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out"
+                        width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10.05 2.53004L4.03002 6.46004C2.10002 7.72004 2.10002 10.54 4.03002 11.8L10.05 15.73C11.13 16.44 12.91 16.44 13.99 15.73L19.98 11.8C21.9 10.54 21.9 7.73004 19.98 6.47004L13.99 2.54004C12.91 1.82004 11.13 1.82004 10.05 2.53004Z"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M5.63 13.08L5.62 17.77C5.62 19.04 6.6 20.4 7.8 20.8L10.99 21.86C11.54 22.04 12.45 22.04 13.01 21.86L16.2 20.8C17.4 20.4 18.38 19.04 18.38 17.77V13.13"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M21.4 15V9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+
+                </div>
+                <div class="text-right">
+                    <% if (getAllTeacher) { %>
+                        <p class="text-2xl">
+                            <%= getAllTeacher %>
+                        </p>
+                        <% } %>
+                            <p>Teacher</p>
+                </div>
+            </div>
+        </div>
+        <!-- ./Statistics Cards -->
+
+
+
+        <% if (branchUser.role=='admin' ) { %>
+
+
+            <div class="px-4 py-2">
+                <div class="grid grid-cols-2 gap-2 w-full max-w-full bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium">
+                        <div class="relative w-full max-w-full flex-grow flex-1 text-left ">
+                            <h2>Total Fees: <strong><%= feescount[0].totalamount %></strong></h2>
+                            <h2>Remaining Fees: <strong><%= feescount[0].totalamount - feescount[0].collectedamount %></strong></h2>
+                            <h2>Total Fees Collected: <strong><%= feescount[0].collectedamount %></strong></h2>
+                        </div>
+                      <div class="relative w-full max-w-full flex-grow flex-1 text-right">
+                        <a href="/branch"
+                            class="border border-white uppercase px-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all text-sm duration-150 hover:bg-blue-900 hover:text-white"><span
+                                class="font-semibold">Create New Branch</span></a>
+                    </div>
+                </div>
+
+               
+            </div>
+
+            <div class="mt-4 mx-4">
+
+                <div class="w-full overflow-hidden rounded-lg shadow-xs">
+                    <div class="w-full overflow-x-auto">
+                        <table id="example" class="w-full display">
+                            <thead>
+                                <tr
+                                    class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                    <th class="px-4 py-3">Student Name</th>
+                                    <th class="px-4 py-3">Email</th>
+                                    <th class="px-4 py-3">Course</th>
+                                    <th class="px-4 py-3">Branch</th>
+                                    <th class="px-4 py-3">Status</th>
+                                    <th class="px-4 py-3">Fees Status</th>
+                                    <th class="px-4 py-3">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                                <% forAdmin.forEach(element=> { %>
+                                    <tr
+                                        class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+                                        <td class="px-4 py-3">
+                                            <div class="flex items-center text-sm">
+
+                                                <div>
+                                                    <a href="student/confirm/<%= element._id %>">
+                                                        <p class="font-semibold">
+                                                            <%= element.fullname %>
+                                                        </p>
+                                                    </a>
+                                                    <a href="tel:<%= element.mobile %>">
+                                                    <p class="text-xs text-gray-600 dark:text-gray-400">
+                                                        <%= element.mobile %>
+                                                    </p>
+                                                </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            <%= element.email %>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                           
+                                                <p>
+                                                    <%= element.course.coursename %>
+                                                </p>
+                                           
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            
+                                                <p>
+                                                    <%= element.branch.branchname %>
+                                                </p>
+                                            
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            <% if (element.status==1) { %>
+                                                <span
+                                                    class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
+                                                    Confirmed </span>
+
+                                                <% } else { %>
+                                                    <span
+                                                        class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
+                                                        Pending </span>
+                                                    <% } %>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            <% if (element.fees == "Fully Paid") { %>
+                                                <span class="px-2 py-1 text-sm font-semibold text-green-700 bg-green-100 rounded-full">
+                                                    Fully Paid
+                                                </span>
+                                            <% } else if(element.fees == "Partially Paid") { %>
+                                                <span class="px-2 py-1 text-sm font-semibold text-yellow-700 bg-yellow-100 rounded-full">
+                                                    Partially Paid
+                                                </span>
+                                            <% }else{ %>
+                                                <span class="px-2 py-1 text-sm font-semibold text-red-700 bg-red-100 rounded-full">
+                                                    Not Paid
+                                                </span>
+                                            <% } %>
+                                        </td>
+
+                                        <td class="px-4 py-3 text-sm">
+                                            <%= element.createdAt.toLocaleDateString('en-GB') %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        <% }else{ %>
+            <div class="mt-4 mx-4">
+
+                <div class="w-full overflow-hidden rounded-lg shadow-xs">
+                    <div class="w-full overflow-x-auto">
+                        <table id="example" class="w-full display">
+                            <thead>
+                                <tr
+                                    class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                    <th class="px-4 py-3">Student Name</th>
+                                    <th class="px-4 py-3">Email</th>
+                                    <th class="px-4 py-3">Course</th>
+                                    <th class="px-4 py-3">Status</th>
+                                    <th class="px-4 py-3">Fees Status</th>
+                                    <th class="px-4 py-3">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                                <% AllStudent.forEach(element=> { %>
+                                    <tr
+                                        class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+                                        <td class="px-4 py-3">
+                                            <div class="flex items-center text-sm">
+
+                                                <div>
+                                                    <a href="student/confirm/<%= element._id %>">
+                                                        <p class="font-semibold">
+                                                            <%= element.fullname %>
+                                                        </p>
+                                                    </a>
+                                                    <a href="tel:<%= element.mobile %>">
+                                                    <p class="text-xs text-gray-600 dark:text-gray-400">
+                                                        <%= element.mobile %>
+                                                    </p>
+                                                </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            <%= element.email %>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            
+                                                <p>
+                                                    <%= element.course.coursename %>
+                                                </p>
+                                           
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            <% if (element.status==1) { %>
+                                                <span
+                                                    class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-700">
+                                                    Confirmed </span>
+
+                                                <% } else { %>
+                                                    <span
+                                                        class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
+                                                        Pending </span>
+                                                    <% } %>
+                                        </td>
+                                        <td class="px-4 py-3 text-sm">
+                                            <% if (element.fees == "Fully Paid") { %>
+                                                <span class="px-2 py-1 text-sm font-semibold text-green-700 bg-green-100 rounded-full">
+                                                    Fully Paid
+                                                </span>
+                                            <% } else if(element.fees == "Partially Paid") { %>
+                                                <span class="px-2 py-1 text-sm font-semibold text-yellow-700 bg-yellow-100 rounded-full">
+                                                    Partially Paid
+                                                </span>
+                                            <% }else{ %>
+                                                <span class="px-2 py-1 text-sm font-semibold text-red-700 bg-red-100 rounded-full">
+                                                    Not Paid
+                                                </span>
+                                            <% } %>
+                                        </td>
+
+                                        <td class="px-4 py-3 text-sm">
+                                            <%= element.createdAt.toLocaleDateString('en-GB') %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+
+                
+
+
+
+    </div>
+
+
+
+
+
+    <%- include('partials/footer'); %>
