@@ -5,8 +5,8 @@ const {isAdmin} = require('../middlewares/isAdmin')
 
 const { createBranch, getAllBranch } = require("../controllers/branchCtrl");
 
-router.get("/", getAllBranch);
+router.get("/",authorize, isAdmin, getAllBranch);
 
-router.post("/", createBranch);
+router.post("/",authorize, isAdmin, createBranch);
 
 module.exports = router;
